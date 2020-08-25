@@ -22,3 +22,61 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+
+# テーブル設計
+<!-- マークダウン記法で記述 -->
+
+## usersテーブル
+
+| Column     | Type    | Options    |
+| ---------- | ------- | ---------- |
+| nickname   | string  | null:false |
+| email      | string  | null:false |
+| password   | string  | null:false |
+| first_name | string  | null:false |
+| last_name  | string  | null:false |
+| first_kana | string  | null:false |
+| last_kana  | string  | null:false |
+
+
+### association
+
+has_many :buys
+has_many :items
+
+## itemsテーブル
+
+| Column   | Type       | Options                       |
+| -------- | ---------- | ----------------------------- |
+| item     | string     | null:false                    |
+| text     | string     | null:false                    |
+| price    | integer    | null:false                    |
+| user     | references | null:false, foreign_key: true |
+
+### association
+
+belongs_to :user
+has_one :buy
+
+## buysテーブル
+
+| Column      | Type       | Options                       |
+| ----------- | ---------- | ----------------------------  |
+| card_num    | string     | null:false                    |
+| expiration  | string     | null:false                    |
+| cvv         | string     | null:false                    |
+| postal_code | string     | null:false                    |
+| city        | string     | null:false                    |
+| street      | string     | null:false                    |
+| house       | string     |                               |
+| telephone   | string     | null:false                    |
+| user        | references | null:false, foreign_key: true |
+| item        | references | null:false, foreign_key: true |
+
+### association
+
+belongs_to :user
+belongs_to :item
