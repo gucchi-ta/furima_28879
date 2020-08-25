@@ -44,8 +44,8 @@ Things you may want to cover:
 
 ### association
 
-has_many :buys
-has_many :items
+- has_many :buys
+- has_many :items
 
 ## itemsテーブル
 
@@ -58,8 +58,8 @@ has_many :items
 
 ### association
 
-belongs_to :user
-has_one :buy
+- belongs_to :user
+- has_one :buy
 
 ## buysテーブル
 
@@ -78,5 +78,5 @@ has_one :buy
 
 ### association
 
-belongs_to :user
-belongs_to :item
+- belongs_to :user
+- belongs_to :item
