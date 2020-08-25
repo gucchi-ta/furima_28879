@@ -34,6 +34,7 @@ Things you may want to cover:
 
 | Column     | Type    | Options    |
 | ---------- | ------- | ---------- |
+| id         | integer | null:false |
 | nickname   | string  | null:false |
 | email      | string  | null:false |
 | password   | string  | null:false |
@@ -53,10 +54,11 @@ Things you may want to cover:
 
 | Column   | Type       | Options                       |
 | -------- | ---------- | ----------------------------- |
+| id       | integer    | null:false                    |
 | item     | string     | null:false                    |
-| text     | string     | null:false                    |
+| text     | text       | null:false                    |
 | price    | integer    | null:false                    |
-| user     | references | null:false, foreign_key: true |
+| user_id  | references | null:false, foreign_key: true |
 
 ### association
 
@@ -68,18 +70,29 @@ Things you may want to cover:
 
 | Column      | Type       | Options                       |
 | ----------- | ---------- | ----------------------------  |
-| card_num    | integer    | null:false                    |
-| expiration  | integer    | null:false                    |
-| cvv         | integer    | null:false                    |
-| postal_code | integer    | null:false                    |
-| city        | string     | null:false                    |
-| street      | string     | null:false                    |
-| house       | string     |                               |
-| telephone   | integer    | null:false                    |
-| user        | references | null:false, foreign_key: true |
-| item        | references | null:false, foreign_key: true |
+| id          | integer    | null:false                    |
+| user_id     | references | null:false, foreign_key: true |
+| item_id     | references | null:false, foreign_key: true |
 
 ### association
 
 - belongs_to :user
 - belongs_to :item
+- has_one :address
+
+<!-- 配送先住所のテーブル -->
+## addressテーブル
+
+| Column        | Type       | Options                       |
+| ------------- | ---------- | ----------------------------  |
+| id            | integer    | null:false                    |
+| postal_code   | integer    | null:false                    |
+| city          | string     | null:false                    |
+| house_num     | string     | null:false                    |
+| buildind_name | string     |                               |
+| telephone     | integer    | null:false                    |
+| buy_id        | references | null:false, foreign_key: true |
+
+### association
+
+- belongs_to :buy
