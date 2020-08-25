@@ -29,6 +29,7 @@ Things you may want to cover:
 # テーブル設計
 <!-- マークダウン記法で記述 -->
 
+<!-- ユーザー管理機能のテーブル -->
 ## usersテーブル
 
 | Column     | Type    | Options    |
@@ -47,6 +48,7 @@ Things you may want to cover:
 - has_many :buys
 - has_many :items
 
+<!-- 商品情報のテーブル -->
 ## itemsテーブル
 
 | Column   | Type       | Options                       |
@@ -61,6 +63,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :buy
 
+<!-- 購入情報のテーブル -->
 ## buysテーブル
 
 | Column      | Type       | Options                       |
