@@ -68,14 +68,14 @@ Things you may want to cover:
 
 | Column      | Type       | Options                       |
 | ----------- | ---------- | ----------------------------  |
-| card_num    | string     | null:false                    |
-| expiration  | string     | null:false                    |
-| cvv         | string     | null:false                    |
-| postal_code | string     | null:false                    |
+| card_num    | integer    | null:false                    |
+| expiration  | integer    | null:false                    |
+| cvv         | integer    | null:false                    |
+| postal_code | integer    | null:false                    |
 | city        | string     | null:false                    |
 | street      | string     | null:false                    |
 | house       | string     |                               |
-| telephone   | string     | null:false                    |
+| telephone   | integer    | null:false                    |
 | user        | references | null:false, foreign_key: true |
 | item        | references | null:false, foreign_key: true |
 
