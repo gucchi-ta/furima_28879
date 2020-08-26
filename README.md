@@ -34,7 +34,6 @@ Things you may want to cover:
 
 | Column     | Type    | Options    |
 | ---------- | ------- | ---------- |
-| id         | integer | null:false |
 | nickname   | string  | null:false |
 | email      | string  | null:false |
 | password   | string  | null:false |
@@ -42,6 +41,9 @@ Things you may want to cover:
 | last_name  | string  | null:false |
 | first_kana | string  | null:false |
 | last_kana  | string  | null:false |
+| birthyear  | integer | null:false |
+| birthmonth | integer | null:false |
+| birthday   | integer | null:false |
 
 
 ### association
@@ -52,13 +54,18 @@ Things you may want to cover:
 <!-- 商品情報のテーブル -->
 ## itemsテーブル
 
-| Column   | Type       | Options                       |
-| -------- | ---------- | ----------------------------- |
-| id       | integer    | null:false                    |
-| item     | string     | null:false                    |
-| text     | text       | null:false                    |
-| price    | integer    | null:false                    |
-| user_id  | references | null:false, foreign_key: true |
+| Column          | Type       | Options                       |
+| --------------- | ---------- | ----------------------------- |
+| image           | string     | null:false                    |
+| item            | string     | null:false                    |
+| text            | text       | null:false                    |
+| category        | string     | null:false                    |
+| product_status  | string     | null:false                    |
+| shipping_charge | string     | null:false                    |
+| area            | string     | null:false                    |
+| delivery_time   | string     | null:false                    |
+| price           | integer    | null:false                    |
+| user            | references | null:false, foreign_key: true |
 
 ### association
 
@@ -70,9 +77,8 @@ Things you may want to cover:
 
 | Column      | Type       | Options                       |
 | ----------- | ---------- | ----------------------------  |
-| id          | integer    | null:false                    |
-| user_id     | references | null:false, foreign_key: true |
-| item_id     | references | null:false, foreign_key: true |
+| user        | references | null:false, foreign_key: true |
+| item        | references | null:false, foreign_key: true |
 
 ### association
 
@@ -85,13 +91,13 @@ Things you may want to cover:
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------  |
-| id            | integer    | null:false                    |
-| postal_code   | integer    | null:false                    |
+| postal_code   | string     | null:false                    |
+| prefecture    | string     | null:false                    |
 | city          | string     | null:false                    |
-| house_num     | string     | null:false                    |
+| house_number  | string     | null:false                    |
 | buildind_name | string     |                               |
-| telephone     | integer    | null:false                    |
-| buy_id        | references | null:false, foreign_key: true |
+| telephone     | string     | null:false                    |
+| buy           | references | null:false, foreign_key: true |
 
 ### association
 
