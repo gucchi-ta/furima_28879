@@ -59,11 +59,11 @@ Things you may want to cover:
 | image           | string     | null:false                    |
 | item            | string     | null:false                    |
 | text            | text       | null:false                    |
-| category        | string     | null:false                    |
-| product_status  | string     | null:false                    |
-| shipping_charge | string     | null:false                    |
-| area            | string     | null:false                    |
-| delivery_time   | string     | null:false                    |
+| category        | integer    | null:false                    |
+| product_status  | integer    | null:false                    |
+| shipping_charge | integer    | null:false                    |
+| area            | integer    | null:false                    |
+| delivery_time   | integer    | null:false                    |
 | price           | integer    | null:false                    |
 | user            | references | null:false, foreign_key: true |
 
@@ -92,7 +92,7 @@ Things you may want to cover:
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------  |
 | postal_code   | string     | null:false                    |
-| prefecture    | string     | null:false                    |
+| prefecture    | integer    | null:false                    |
 | city          | string     | null:false                    |
 | house_number  | string     | null:false                    |
 | buildind_name | string     |                               |
