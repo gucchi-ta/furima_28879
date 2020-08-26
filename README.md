@@ -41,9 +41,7 @@ Things you may want to cover:
 | last_name  | string  | null:false |
 | first_kana | string  | null:false |
 | last_kana  | string  | null:false |
-| birthyear  | integer | null:false |
-| birthmonth | integer | null:false |
-| birthday   | integer | null:false |
+| birthday   | date    | null:false |
 
 
 ### association
@@ -96,7 +94,7 @@ Things you may want to cover:
 | city          | string     | null:false                    |
 | house_number  | string     | null:false                    |
 | buildind_name | string     |                               |
-| telephone     | integer    | null:false                    |
+| telephone     | string     | null:false                    |
 | buy           | references | null:false, foreign_key: true |
 
 ### association
