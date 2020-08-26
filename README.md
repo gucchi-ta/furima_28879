@@ -96,7 +96,7 @@ Things you may want to cover:
 | city          | string     | null:false                    |
 | house_number  | string     | null:false                    |
 | buildind_name | string     |                               |
-| telephone     | string     | null:false                    |
+| telephone     | integer    | null:false                    |
 | buy           | references | null:false, foreign_key: true |
 
 ### association
