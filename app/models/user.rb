@@ -14,8 +14,8 @@ class User < ApplicationRecord
 
   #ユーザー本名のバリデーション
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
-    validates :first_kana
-    validates :last_kana
+    validates :first_name
+    validates :last_name
   end
 
   #ユーザー本名フリガナのバリデーション
