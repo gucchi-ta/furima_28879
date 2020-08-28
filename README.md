@@ -46,7 +46,7 @@ Things you may want to cover:
 
 ### association
 
-- has_many :buys
+- has_many :orders
 - has_many :items
 
 <!-- 商品情報のテーブル -->
@@ -68,10 +68,10 @@ Things you may want to cover:
 ### association
 
 - belongs_to :user
-- has_one :buy
+- has_one :order
 
 <!-- 購入情報のテーブル -->
-## buysテーブル
+## ordersテーブル
 
 | Column      | Type       | Options                       |
 | ----------- | ---------- | ----------------------------  |
@@ -95,8 +95,8 @@ Things you may want to cover:
 | house_number  | string     | null:false                    |
 | buildind_name | string     |                               |
 | telephone     | string     | null:false                    |
-| buy           | references | null:false, foreign_key: true |
+| order         | references | null:false, foreign_key: true |
 
 ### association
 
-- belongs_to :buy
+- belongs_to :order
