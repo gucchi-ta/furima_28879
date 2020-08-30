@@ -66,4 +66,9 @@ gem 'devise'
 
 gem 'pry-rails'
 
+# ActiveHashの導入
 gem 'active_hash'
+
+# ActiveSotrageの導入
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
