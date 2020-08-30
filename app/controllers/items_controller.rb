@@ -9,4 +9,7 @@ class ItemsController < ApplicationController
       end
    end
 
+   def new
+   end
+
 end
