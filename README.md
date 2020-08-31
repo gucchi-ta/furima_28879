@@ -52,18 +52,18 @@ Things you may want to cover:
 <!-- 商品情報のテーブル -->
 ## itemsテーブル
 
-| Column          | Type       | Options                       |
-| --------------- | ---------- | ----------------------------- |
-| image           | string     | null:false                    |
-| item            | string     | null:false                    |
-| text            | text       | null:false                    |
-| category        | integer    | null:false                    |
-| product_status  | integer    | null:false                    |
-| shipping_charge | integer    | null:false                    |
-| area            | integer    | null:false                    |
-| delivery_time   | integer    | null:false                    |
-| price           | integer    | null:false                    |
-| user            | references | null:false, foreign_key: true |
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| image              | string     | null:false                    |
+| item               | string     | null:false                    |
+| text               | text       | null:false                    |
+| category           | integer    | null:false                    |
+| product_status     | integer    | null:false                    |
+| shipping_fee       | integer    | null:false                    |
+| prefecture         | integer    | null:false                    |
+| scheduled_delivery | integer    | null:false                    |
+| price              | integer    | null:false                    |
+| user               | references | null:false, foreign_key: true |
 
 ### association
 
