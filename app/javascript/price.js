@@ -14,5 +14,5 @@ function price() {
     profit.innerHTML = profit_value;
   });
 }
-//画面ロード時に定義したplice関数を実行
+//画面ロード時に定義したprice関数を実行
 window.addEventListener("load", price);

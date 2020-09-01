@@ -55,7 +55,7 @@ Things you may want to cover:
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | image              | string     | null:false                    |
-| item               | string     | null:false                    |
+| item_name          | string     | null:false                    |
 | text               | text       | null:false                    |
 | category           | integer    | null:false                    |
 | product_status     | integer    | null:false                    |
