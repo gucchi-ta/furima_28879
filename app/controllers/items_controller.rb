@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
    
    def index
+      @items = Item.includes(:user).order("created_at DESC")
+      @orders = Order.includes(:user, :item)
    end
    
    def move_to_index
