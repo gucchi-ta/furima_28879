@@ -19,6 +19,11 @@ class ItemsController < ApplicationController
       end
    end
 
+   def show
+      @item = Item.find(params[:id])
+      @orders = Order.includes(:user, :item)
+   end
+
    private
 
    def item_params
