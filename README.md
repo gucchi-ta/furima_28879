@@ -85,7 +85,7 @@ Things you may want to cover:
 - has_one :address
 
 <!-- 配送先住所のテーブル -->
-## addressテーブル
+## addressesテーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------  |
