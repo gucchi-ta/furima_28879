@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end
 
   # ユーザー本名フリガナのバリデーション
-  with_options presence: true, format: { with: /\A[ァ-ン]+\z/ } do
+  with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/ } do
     validates :first_kana
     validates :last_kana
   end
