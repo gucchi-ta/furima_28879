@@ -1,13 +1,15 @@
 const pay = () => {
-  
+  // 公開鍵の設定
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
+  // フォームボタン押した際の処理
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const formResult = document.getElementById("charge-form");
     console.log(formResult)
     const formData = new FormData(formResult);
     console.log(formData)
+    // 入力されたカードの情報を定数cardにハッシュ形式で代入
     const card = {
       number: formData.get("number"),
       exp_month: formData.get("exp_month"),
@@ -15,6 +17,7 @@ const pay = () => {
       cvc: formData.get("cvc"),
     }; 
     console.log(card);
+    // カード情報を元にtokenを生成
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
