@@ -12,7 +12,7 @@ class OrderAddress
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :city
     validates :house_number
-    validates :telephone, format: { with: /\d/ }
+    validates :telephone, format: { with: /\d/ }, length: { maximum: 11 }
   end
 
   def save
