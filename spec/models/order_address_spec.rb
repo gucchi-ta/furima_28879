@@ -54,12 +54,12 @@ RSpec.describe User, type: :model do
         it '電話番号が正しい書き方でないと購入できない' do
           @order.telephone = 'ああ'
           @order.valid?
-          expect(@order.errors.full_messages).to include("Telephone is invalid")
+          expect(@order.errors.full_messages).to include('Telephone is invalid')
         end
         it '電話番号が11文字より大きいと購入できない' do
           @order.telephone = '111111111111'
           @order.valid?
-          expect(@order.errors.full_messages).to include("Telephone is too long (maximum is 11 characters)")
+          expect(@order.errors.full_messages).to include('Telephone is too long (maximum is 11 characters)')
         end
       end
     end
