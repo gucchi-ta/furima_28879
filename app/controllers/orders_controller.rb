@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: :index
   before_action :move_to_root, only: :index
   def index
     @order = OrderAddress.new
@@ -41,4 +42,5 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
+
 end
