@@ -3,10 +3,10 @@ class OrderAddress
   attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :telephone, :user_id, :item_id
   attr_accessor :token
 
-  # prefectureバリデーション
-  validates :prefecture_id, format: { with: /[2-9]|[1-4][0-8]/, message: 'Select' }
   # tokenバリデーション
   validates :token, presence: true
+  # prefectureバリデーション
+  validates :prefecture_id, format: { with: /[2-9]|[1-4][0-8]/, message: 'Select' }
   # その他address情報バリデーション
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
