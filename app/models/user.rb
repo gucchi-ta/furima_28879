@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :items
-  has_many :orders
+  has_many :items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end
 
   # ユーザー本名フリガナのバリデーション
-  with_options presence: true, format: { with: /\A[ァ-ン]+\z/ } do
+  with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/ } do
     validates :first_kana
     validates :last_kana
   end

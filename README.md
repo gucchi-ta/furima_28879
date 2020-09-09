@@ -85,7 +85,7 @@ Things you may want to cover:
 - has_one :address
 
 <!-- 配送先住所のテーブル -->
-## addressテーブル
+## addressesテーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------  |
@@ -93,7 +93,7 @@ Things you may want to cover:
 | prefecture    | integer    | null:false                    |
 | city          | string     | null:false                    |
 | house_number  | string     | null:false                    |
-| buildind_name | string     |                               |
+| building_name | string     |                               |
 | telephone     | string     | null:false                    |
 | order         | references | null:false, foreign_key: true |
 

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: :new
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -38,8 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.valid?
-      @item.destroy
+    if @item.destroy
       redirect_to root_path
     else
       render :show
