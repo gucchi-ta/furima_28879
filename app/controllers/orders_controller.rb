@@ -38,9 +38,6 @@ class OrdersController < ApplicationController
   def move_to_root
     @orders = Order.includes(:user, :item)
     @user = Item.find(params[:id]).user_id
-    if @user == current_user.id || @orders.where(item_id: params[:id]).present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @user == current_user.id || @orders.where(item_id: params[:id]).present?
   end
-
 end

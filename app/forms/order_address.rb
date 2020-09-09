@@ -4,7 +4,7 @@ class OrderAddress
   attr_accessor :token
 
   # prefectureバリデーション
-  validates :prefecture_id, format: { with: /[2-9]|[1-4][0-8]/, message: "Select" }
+  validates :prefecture_id, format: { with: /[2-9]|[1-4][0-8]/, message: 'Select' }
   # tokenバリデーション
   validates :token, presence: true
   # その他address情報バリデーション
@@ -19,6 +19,7 @@ class OrderAddress
     # 購入情報(親テーブル)の情報を保存し、変数orderに代入
     order = Order.create(user_id: user_id, item_id: item_id, token: token)
     # 住所(子テーブル)の情報を保存
-    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name, telephone: telephone, order_id: order.id)
+    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, house_number: house_number,
+                   building_name: building_name, telephone: telephone, order_id: order.id)
   end
 end
