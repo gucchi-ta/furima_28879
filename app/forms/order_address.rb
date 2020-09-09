@@ -4,7 +4,7 @@ class OrderAddress
   attr_accessor :token
 
   # prefectureバリデーション
-  validates :prefecture_id, numericality: { other_than: 1 }
+  validates :prefecture_id, format: { with: /[2-9]|[1-4][0-8]/, message: "Select" }
   # tokenバリデーション
   validates :token, presence: true
   # その他address情報バリデーション
