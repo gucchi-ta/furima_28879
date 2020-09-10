@@ -6,7 +6,7 @@ class OrderAddress
   # tokenバリデーション
   validates :token, presence: true
   # prefectureバリデーション
-  validates :prefecture_id, format: { with: /[2-9]|[1-4][0-8]/, message: 'を選んで下さい' }
+  validates :prefecture_id, numericality: { other_than: 1 }
   # その他address情報バリデーション
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }

@@ -24,7 +24,7 @@ ja:
       messages:
         not_a_number: は半角数字で入力して下さい
         other_than: を選択して下さい
-        invalid: が正しくない値です
+        invalid: の入力情報が正しくありません
   activemodel:
     attributes:
       order_address:
@@ -35,4 +35,9 @@ ja:
         house_number: 番地
         building_name: 建物名
         telephone: 電話番号
+    errors:
+      messages:
+        not_a_number: は半角数字で入力して下さい
+        other_than: を選択して下さい
+        invalid: の入力情報が正しくありません
   
