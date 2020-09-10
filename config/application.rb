@@ -19,7 +19,7 @@ module Furima28879
     end
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ja
     # config.active_model.i18n_customize_full_message = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
