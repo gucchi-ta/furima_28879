@@ -69,6 +69,29 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_one :order
+- has_many : tags, throgh : item_tag_relations
+
+<!-- タグ情報のテーブル -->
+## tagsテーブル
+| Column | Type   | Options                      |
+| ------ | ------ | ---------------------------- |
+| image  | string | null:false, uniqueness: true |
+
+### association
+
+- has_many : items, through : item_tag_relations
+
+<!-- 商品/タグ情報の中間テーブル -->
+## item_tag_relationsテーブル
+| Column | Type       | Options                       |
+| ------ | ---------- | ----------------------------- |
+| item   | references | null:false, foreign_key: true |
+| tag    | references | null:false, foreign_key: true |
+
+### association
+
+- belongs_to :item
+- belongs_to :user
 
 <!-- 購入情報のテーブル -->
 ## ordersテーブル
