@@ -87,3 +87,5 @@ gem 'payjp'
 
 # Amazon S3を導入
 gem "aws-sdk-s3", require: false
+
+gem 'cocoon'
