@@ -10,16 +10,6 @@ ja:
         first_kana: お名前カナ(姓)
         last_kana: お名前カナ(名)
         birthday: 生年月日
-      item:
-        image: 画像
-        item_name: 商品名
-        text: 商品の説明
-        category_id: カテゴリー
-        product_status_id: 商品の状態
-        shipping_fee_status_id: 配送料の負担
-        prefecture_id: 発送元の地域
-        scheduled_delivery_id: 発送までの日数
-        price: 価格
     errors:
       messages:
         not_a_number: は半角数字で入力して下さい
@@ -35,6 +25,17 @@ ja:
         house_number: 番地
         building_name: 建物名
         telephone: 電話番号
+      item_tag:
+        image: 画像
+        item_name: 商品名
+        text: 商品の説明
+        category_id: カテゴリー
+        product_status_id: 商品の状態
+        shipping_fee_status_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        scheduled_delivery_id: 発送までの日数
+        price: 価格
+        tag_name: タグ
     errors:
       messages:
         not_a_number: は半角数字で入力して下さい

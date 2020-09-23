@@ -1,3 +1,4 @@
+if (location.pathname.match("items/new")){
 //price関数を定義
 function price() {
   //要素を取得
@@ -16,3 +17,4 @@ function price() {
 };
 //画面ロード時に定義したprice関数を実行
 window.addEventListener("load", price);
+};

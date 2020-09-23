@@ -9,7 +9,13 @@ require("@rails/activestorage").start()
 require("channels")
 //jsファイル(price.js)を読み込む
 require("../price")
-require("../card") 
+require("../card")
+// require("../tag")
+// jquery, cocoonの導入
+require('jquery')
+import "cocoon";
+require("@nathanvda/cocoon")
+require("cocoon")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

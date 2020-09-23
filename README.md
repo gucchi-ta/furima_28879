@@ -73,9 +73,9 @@ Things you may want to cover:
 
 <!-- タグ情報のテーブル -->
 ## tagsテーブル
-| Column | Type   | Options                      |
-| ------ | ------ | ---------------------------- |
-| image  | string | null:false, uniqueness: true |
+| Column   | Type   | Options                      |
+| -------- | ------ | ---------------------------- |
+| item_tag | string | null:false, uniqueness: true |
 
 ### association
 
