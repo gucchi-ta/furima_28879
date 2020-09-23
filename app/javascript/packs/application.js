@@ -10,7 +10,8 @@ require("channels")
 //jsファイル(price.js)を読み込む
 require("../price")
 require("../card")
-// require("../tag")
+require("../tag")
+require("../tag_search")
 // jquery, cocoonの導入
 require('jquery')
 import "cocoon";

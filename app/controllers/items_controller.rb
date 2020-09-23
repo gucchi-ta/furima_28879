@@ -65,6 +65,12 @@ class ItemsController < ApplicationController
     @orders = Order.includes(:user, :item)
   end
 
+  def incre_search
+    return nil if params[:input] == ""
+    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
+    render json:{ incre_keyword: @tags }
+  end
+
   private
 
   def item_params
