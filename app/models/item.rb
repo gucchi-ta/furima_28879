@@ -29,10 +29,10 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Item.joins(item_tag_relations: [:tag]).where('item_name LIKE(?) or text LIKE(?) or tag_name LIKE(?) ', "%#{search}%","%#{search}%", "%#{search}%")
+      Item.joins(item_tag_relations: [:tag]).where('item_name LIKE(?) or text LIKE(?) or tag_name LIKE(?) ', "%#{search}%","%#{search}%", "%#{search}%").order('created_at DESC')
       # Item.joins(item_tag_relations: [:tag]).where('tag_name LIKE(?)', "%#{search}%")
     else
-      Item.all
+      Item.all.order('created_at DESC')
     end
   end
 
