@@ -1,5 +1,4 @@
 window.addEventListener("load", (e) => {
-  console.log(1)
   const inputElement = document.getElementById("item-tag");
     inputElement.addEventListener("keyup", (e) => {
       const input = document.getElementById("item-tag").value;

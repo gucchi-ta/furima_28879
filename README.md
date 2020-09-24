@@ -48,6 +48,7 @@ Things you may want to cover:
 
 - has_many :orders
 - has_many :items
+- has_many :messages
 
 <!-- 商品情報のテーブル -->
 ## itemsテーブル
@@ -98,8 +99,9 @@ Things you may want to cover:
 ## messagesテーブル
 | Column  | Type       | Options                       |
 | ------- | ---------- | ----------------------------- |
-| message | string     |                               |
+| message | text       |                               |
 | item    | references | null:false, foreign_key: true |
+| user    | references | null:false, foreign_key: true |
 
 ### association
 
