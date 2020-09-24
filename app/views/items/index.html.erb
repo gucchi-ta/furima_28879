@@ -146,9 +146,14 @@
               </h3>
               <div class='item-price'>
                 <span><%= item.price %>円<br>(税込み)</span>
-                <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                <div class='star-btn' >
+                  <% if item.checked == true %>
+                    <%= image_tag "light_star.png", class:"star-icon" %>
+                    <span class='star-count'>1</span>
+                  <% else %>
+                    <%= image_tag "dark_star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -160,15 +165,15 @@
       <% if @items.where('id >= 1').blank? %>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+          <%= image_tag "white_image", class: "item-img" %>
           <div class='item-info'>
             <h3 class='item-name'>
               商品を出品してね！
             </h3>
             <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
+              <span></span>
               <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
+                <%= image_tag "dark_star.png", class:"star-icon" %>
                 <span class='star-count'>0</span>
               </div>
             </div>

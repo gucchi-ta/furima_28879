@@ -44,7 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
     @items =  ItemTag.new(item_params)
@@ -85,6 +84,19 @@ class ItemsController < ApplicationController
     return nil if params[:input] == ""
     @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
     render json:{ incre_keyword: @tags }
+  end
+
+  def checked
+    # binding.pry
+    item = Item.find(params[:id])
+    if item.checked 
+      item.update(checked: false)
+    else
+      item.update(checked: true)
+    end
+
+    item = Item.find(params[:id])
+    render json: { item: item }
   end
 
   private
