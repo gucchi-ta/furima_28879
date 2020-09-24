@@ -223,3 +223,11 @@
 .messages p{
   padding: 4px;
 }
+
+.mouseon_cursor{
+  cursor: pointer !important;
+}
+
+div[data-check="true"] {
+  background: #ffdca8;
+}

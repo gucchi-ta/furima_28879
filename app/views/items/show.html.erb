@@ -72,13 +72,13 @@
       </tbody>
     </table>
     <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+      <div class="favorite-btn" id="good-btn" data-id=<%= @item.id %> data-check=<%= @item.checked %>>
+        <%= image_tag "dark_star.png" ,class:"favorite-star-icon" ,width:"20",height:"20" %>
+        <span class="mouseon_cursor">お気に入り</span>
       </div>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
+        <span class="mouseon_cursor">不適切な商品の通報</span>
       </div>
     </div>
   </div>
