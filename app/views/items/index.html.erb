@@ -164,7 +164,7 @@
       <%# 商品がない場合のダミー %>
       <% if @items.where('id >= 1').blank? %>
         <li class='list'>
-          <%= link_to '#' do %>
+          <%= link_to new_item_path do %>
           <%= image_tag "white_image", class: "item-img" %>
           <div class='item-info'>
             <h3 class='item-name'>
