@@ -28,18 +28,19 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
     @orders = Order.includes(:user, :item)
     # @items =  ItemTag.find(params[:id])
+    @message = Message.new
+    @messages = @item.messages.includes(:user)
   end
 
   def edit
-    # binding.pry
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
     @items =  ItemTag.new
-    # @items =  ItemTag.find(params[:id])
   end
 
   def update
@@ -47,7 +48,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
     @items =  ItemTag.new(item_params)
-    # binding.pry
     # FoemオブジェクトでActiveStprageの紐付けがきれてしまうので@item.image.blobで取得したものを代入
     if @items.image == nil
       @items.image = @item.image.blob
@@ -62,11 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @item = Item.find(params[:id])
-    # @tag = @item.item_tag_relations[0].tag
-    # @items =  ItemTag.new
-    # @items =  ItemTag.new(item_destroy_params)
     if @item.destroy
       redirect_to root_path
     else
@@ -75,7 +71,6 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # binding.pry
     @item = Item.search(params[:keyword])
     @orders = Order.includes(:user, :item)
   end

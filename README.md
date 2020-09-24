@@ -48,6 +48,7 @@ Things you may want to cover:
 
 - has_many :orders
 - has_many :items
+- has_many :messages
 
 <!-- 商品情報のテーブル -->
 ## itemsテーブル
@@ -70,12 +71,13 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :order
 - has_many : tags, throgh : item_tag_relations
+- has_many : messages
 
 <!-- タグ情報のテーブル -->
 ## tagsテーブル
-| Column   | Type   | Options                      |
-| -------- | ------ | ---------------------------- |
-| item_tag | string | null:false, uniqueness: true |
+| Column   | Type   | Options |
+| -------- | ------ | ------- |
+| item_tag | string |         |
 
 ### association
 
@@ -92,6 +94,18 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
+
+<!-- メッセージのテーブル -->
+## messagesテーブル
+| Column  | Type       | Options                       |
+| ------- | ---------- | ----------------------------- |
+| message | text       |                               |
+| item    | references | null:false, foreign_key: true |
+| user    | references | null:false, foreign_key: true |
+
+### association
+
+- belongs_to :item
 
 <!-- 購入情報のテーブル -->
 ## ordersテーブル

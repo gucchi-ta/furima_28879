@@ -1,7 +1,7 @@
 const { htmlPrefilter } = require("jquery");
 
-// window.addEventListener("load", (e) => {
-function add_tag() {
+window.addEventListener("load", (e) => {
+// function add_tag() {
   console.log("1");
   const newElement = document.getElementById("new-tag");
   const tagFormElement = document.getElementById("tag-form");
@@ -10,11 +10,11 @@ function add_tag() {
   const sellBtnElement = document.getElementsByClassName("sell-btn");
   
   console.log(newElement);
-  console.log("2");
-  if (plusImageElement.getAttribute("data-load") != null) {
-    return null;
-  }
-  plusImageElement.setAttribute("data-load", "true");
+  // console.log("2");
+  // if (plusImageElement.getAttribute("data-load") != null) {
+  //   return null;
+  // }
+  // plusImageElement.setAttribute("data-load", "true");
 
   plusImageElement.addEventListener("click", (e) => {
     const HTML = `<textarea class="items-tag" id="items-tag" maxlength="20" name="item[tag][tag_name]"></textarea>
@@ -36,10 +36,10 @@ function add_tag() {
   // sellBtnElement.addEventListener("click", (e) => {
   // });
 
-};
-// });
+// };
+});
 
-setInterval(add_tag, 1000);
+// setInterval(add_tag, 1000);
 
 // console.log("3");
 // const tag = `<textarea class="items-tag" id="item-tag" maxlength="20" name="item[tag][tag_name]"></textarea>

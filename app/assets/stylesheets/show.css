@@ -204,3 +204,22 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+/* コメント一覧 */
+.comments{
+  width: 40vw;
+  background-color: #fff;
+  margin: 5vh 0;
+  text-align: center;
+}
+
+.comment_index{
+  border-bottom: 2px solid #3CCACE;
+  background-color: #3CCACE;
+  color:  #fff;
+  font-size: larger;
+}
+
+.messages p{
+  padding: 4px;
+}
