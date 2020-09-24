@@ -2,6 +2,12 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order, dependent: :destroy
   has_one_attached :image
+  has_many :tags, through: :item_tag_relations, dependent: :destroy
+  has_many :item_tag_relations, dependent: :destroy
+  
+  accepts_nested_attributes_for :tags, allow_destroy: true
+  accepts_nested_attributes_for :item_tag_relations, allow_destroy: true
+
 
   # Active Hashのアソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -19,4 +25,14 @@ class Item < ApplicationRecord
   # ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id, :product_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id,
             numericality: { other_than: 1 }
+
+  def self.search(search)
+    if search != ""
+      Item.joins(item_tag_relations: [:tag]).where('item_name LIKE(?) or text LIKE(?) or tag_name LIKE(?)', "%#{search}%","%#{search}%", "%#{search}%")
+      # Item.joins(item_tag_relations: [:tag]).where('tag_name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
