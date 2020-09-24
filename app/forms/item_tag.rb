@@ -34,6 +34,15 @@ class ItemTag
     # ItemTagRelation.update(item_id: item_id, tag_id: tag_id)
   end
 
+  def destroy(params)
+    item = Item.find(params)
+    item.destroy(image: image, item_name: item_name, text: text, category_id: category_id, product_status_id: product_status_id, 
+                        shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id, 
+                        scheduled_delivery_id: scheduled_delivery_id, price: price, user_id: user_id)
+
+    # ItemTagRelation.update(item_id: item_id, tag_id: tag_id)
+  end
+
   def find(params)
     item = Item.find(params)
     tag = item.item_tag_relations[0].tag
