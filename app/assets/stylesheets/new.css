@@ -106,7 +106,8 @@
 }
 
 .items-tag {
-  width: calc(100% - 19px);
+  /* width: calc(100% - 19px); */
+  width: 100%;
   padding: 16px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
