@@ -1,7 +1,8 @@
 <%= form_with model: model, url: url, local: true do |f| %>
 
   <%# エラー発生時にメッセージを表示 %>
-  <%= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/error_messages', model: models %>
+  <%## エラー発生時にメッセージを表示 %>
 
   <%# 出品画像 %>
   <div class="img-upload">
@@ -34,34 +35,28 @@
   </div>
   <%# /商品名と商品説明 %>
 
-  <%# 商品タグ %>
-  <%=  f.fields_for @tag do |i|  %>
-  <div class="new-tags" id="new-tag">
-    <div class="tag_text_image">
-      <div class="weight-bold-tag-text">タグ</div>
-      <p class="tag_image">
-        <%= image_tag('plus_image.png' , size: '15', id: 'image-tag') %>
-      </p>
-    </div>
-    <%= i.text_area :tag_name, class:"items-tag", id:"item-tag", maxlength:"20" %>
-  </div>
-  <% end %>
-  <div id="search-result">
-  </div>
+  <%# 商品タグ(tagsテーブルを参照) %>
+ <%# 商品タグ(tagsテーブルを参照) %>
+      <div class="new-tags" id="new-tag">
+        <div class="tag_text_image">
+          <div class="weight-bold-tag-text">タグ</div>
+          <p class="tag_image">
+            <%= image_tag('plus_image.png' , size: '15', id: 'plus-image') %>
+          </p>
+        </div>
 
-  <%# <div class="text-right"> %>
-    <%# link_to_add_association 'タグを追加', f, :tags,
-      class: 'btn btn-default',
-      data: {
-        association_insertion_node: '#detail-association-insertion-point',
-        association_insertion_method: 'append' }
-    %>
-  <%# </div>
-  <div class="form-group"> %>
-  <%# f.fields_for :tag do |od| %>
-    <%# render 'item_tag_relation_fields', f: od %>
-  <%# end %>
-  <%# </div> %>
+        <%= f.fields_for tag, local: true do |f|  %>  
+          <div id="tag-form"> 
+            <%= f.text_area :tag_name, class:"items-tag", id:"item-tag", maxlength:"20" %>
+            <%= image_tag('minus_image.png' , size: '15', id: 'minus-image') %>
+          </div>
+        <% end %>
+        
+
+      </div>
+      <div id="search-result" calss="search-result">
+      </div>
+      <%# /商品タグ %>
   <%# /商品タグ %>
 
   <%# 商品の詳細 %>

@@ -88,4 +88,9 @@ gem 'payjp'
 # Amazon S3を導入
 gem "aws-sdk-s3", require: false
 
+# cocoonの導入
 gem 'cocoon'
+
+# nested_form_fieldsの導入
+gem 'nested_form_fields'
+gem 'jquery-rails'

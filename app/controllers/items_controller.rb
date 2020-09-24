@@ -6,16 +6,21 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:user).order('created_at DESC')
     @orders = Order.includes(:user, :item)
+    # @item_tag = ItemTag.search(params[:keyword])
   end
 
   def new
-    @item = ItemTag.new
+    @item = Item.new
+    @tag = Tag.new
+    @items =  ItemTag.new
   end
 
   def create
-    @item = ItemTag.new(item_params)
-    if @item.valid?
-      @item.save
+    @item = Item.new
+    @tag = Tag.new
+    @items = ItemTag.new(item_params)
+    if @items.valid?
+      @items.save
       redirect_to root_path
     else
       render :new
@@ -26,25 +31,28 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
     @orders = Order.includes(:user, :item)
+    # @items =  ItemTag.find(params[:id])
   end
 
   def edit
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
     @items =  ItemTag.new
+    # @items =  ItemTag.find(params[:id])
   end
 
   def update
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
-    @items =  ItemTag.new(item_update_params)
+    @items =  ItemTag.new(item_params)
+    # binding.pry
     # FoemオブジェクトでActiveStprageの紐付けがきれてしまうので@item.image.blobで取得したものを代入
     if @items.image == nil
       @items.image = @item.image.blob
     end
     ## FoemオブジェクトでActiveStprageの紐付けがきれてしまうので@item.image.blobで取得したものを代入
     if @items.valid?
-      @items.update
+      @items.update(params[:id])
       redirect_to root_path
     else
       render :edit
@@ -61,6 +69,7 @@ class ItemsController < ApplicationController
   end
 
   def search
+    # binding.pry
     @item = Item.search(params[:keyword])
     @orders = Order.includes(:user, :item)
   end
@@ -71,29 +80,22 @@ class ItemsController < ApplicationController
     render json:{ incre_keyword: @tags }
   end
 
+  def tag
+    return nil if params[:input] == ""
+    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
+    render json:{ incre_keyword: @tags }
+  end
+
   private
 
   def item_params
-    params.require(:item_tag)
-          .permit(:image, :item_name, :text, :category_id, :product_status_id,
-                  :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, :price, :tag_name )
-          .merge(user_id: current_user.id)
-  end
-
-  def item_update_params
     p_tag_name = params[:item][:tag][:tag_name]
+    id = params[:id]
     params.require(:item).permit(:image, :item_name, :text, :category_id, :product_status_id,
                                  :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, 
                                  :price, :tag_name, :_destroy, :id, tag: {})
                          .merge(user_id: current_user.id, tag_name: p_tag_name)
   end
-
-  # def item_edit_params
-  #   params.require(:item).permit(:image, :item_name, :text, :category_id, :product_status_id,
-  #                                :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, 
-  #                                :price, :tag_name, :_destroy, :id, tag: {})
-  #                        .merge(user_id: current_user.id)
-  # end
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?

@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'incre_search'
+      post 'tag'
+    end
+    member do
+      get 'incre_search'
+      post 'tag'
     end
   end
 end

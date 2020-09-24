@@ -10,13 +10,15 @@ require("channels")
 //jsファイル(price.js)を読み込む
 require("../price")
 require("../card")
-require("../tag")
+require("../add_tag")
 require("../tag_search")
 // jquery, cocoonの導入
 require('jquery')
 import "cocoon";
 require("@nathanvda/cocoon")
 require("cocoon")
+
+// require ('nested_form_field')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
