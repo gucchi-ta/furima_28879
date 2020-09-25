@@ -1,7 +1,6 @@
 class ItemTag
-
   include ActiveModel::Model
-  attr_accessor :image, :item_name, :text, :category_id, :product_status_id, :shipping_fee_status_id, 
+  attr_accessor :image, :item_name, :text, :category_id, :product_status_id, :shipping_fee_status_id,
                 :prefecture_id, :scheduled_delivery_id, :price, :tag_name, :item_id, :tag_id, :user_id, :tag, :id
 
   validates :image, :item_name, :text, presence: true
@@ -13,9 +12,10 @@ class ItemTag
             numericality: { other_than: 1 }
 
   def save
-    item = Item.create(image: image, item_name: item_name, text: text, category_id: category_id, product_status_id: product_status_id, 
-                        shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id, 
-                        scheduled_delivery_id: scheduled_delivery_id, price: price, user_id: user_id)
+    item = Item.create(image: image, item_name: item_name, text: text, category_id: category_id,
+                       product_status_id: product_status_id, shipping_fee_status_id: shipping_fee_status_id,
+                       prefecture_id: prefecture_id, scheduled_delivery_id: scheduled_delivery_id,
+                       price: price, user_id: user_id)
 
     tag = Tag.where(tag_name: tag_name).first_or_initialize
     tag.save
@@ -26,9 +26,9 @@ class ItemTag
   def update(params)
     item = Item.find(params)
     tag = item.item_tag_relations[0].tag
-    item.update(image: image, item_name: item_name, text: text, category_id: category_id, product_status_id: product_status_id, 
-                        shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id, 
-                        scheduled_delivery_id: scheduled_delivery_id, price: price, user_id: user_id)
+    item.update(image: image, item_name: item_name, text: text, category_id: category_id, product_status_id: product_status_id,
+                shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id,
+                scheduled_delivery_id: scheduled_delivery_id, price: price, user_id: user_id)
 
     tag.update(tag_name: tag_name)
     # ItemTagRelation.update(item_id: item_id, tag_id: tag_id)
@@ -36,9 +36,9 @@ class ItemTag
 
   def destroy(params)
     item = Item.find(params)
-    item.destroy(image: image, item_name: item_name, text: text, category_id: category_id, product_status_id: product_status_id, 
-                        shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id, 
-                        scheduled_delivery_id: scheduled_delivery_id, price: price, user_id: user_id)
+    item.destroy(image: image, item_name: item_name, text: text, category_id: category_id, product_status_id: product_status_id,
+                 shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id,
+                 scheduled_delivery_id: scheduled_delivery_id, price: price, user_id: user_id)
 
     # ItemTagRelation.update(item_id: item_id, tag_id: tag_id)
   end
@@ -48,5 +48,4 @@ class ItemTag
     tag = item.item_tag_relations[0].tag
     @items = [item, tag]
   end
-
 end

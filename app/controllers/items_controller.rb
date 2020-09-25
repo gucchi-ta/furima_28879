@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @tag = Tag.new
-    @items =  ItemTag.new
+    @items = ItemTag.new
   end
 
   def create
@@ -40,17 +40,15 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
-    @items =  ItemTag.new
+    @items = ItemTag.new
   end
 
   def update
     @item = Item.find(params[:id])
     @tag = @item.item_tag_relations[0].tag
-    @items =  ItemTag.new(item_params)
+    @items = ItemTag.new(item_params)
     # FoemオブジェクトでActiveStprageの紐付けがきれてしまうので@item.image.blobで取得したものを代入
-    if @items.image == nil
-      @items.image = @item.image.blob
-    end
+    @items.image = @item.image.blob if @items.image.nil?
     ## FoemオブジェクトでActiveStprageの紐付けがきれてしまうので@item.image.blobで取得したものを代入
     if @items.valid?
       @items.update(params[:id])
@@ -75,21 +73,23 @@ class ItemsController < ApplicationController
   end
 
   def incre_search
-    return nil if params[:input] == ""
-    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
-    render json:{ incre_keyword: @tags }
+    return nil if params[:input] == ''
+
+    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"])
+    render json: { incre_keyword: @tags }
   end
 
   def tag
-    return nil if params[:input] == ""
-    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
-    render json:{ incre_keyword: @tags }
+    return nil if params[:input] == ''
+
+    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"])
+    render json: { incre_keyword: @tags }
   end
 
   def checked
     # binding.pry
     item = Item.find(params[:id])
-    if item.checked 
+    if item.checked
       item.update(checked: false)
     else
       item.update(checked: true)
@@ -104,16 +104,16 @@ class ItemsController < ApplicationController
   def item_params
     p_tag_name = params[:item][:tag][:tag_name]
     params.require(:item).permit(:image, :item_name, :text, :category_id, :product_status_id,
-                                 :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, 
+                                 :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id,
                                  :price, :tag_name, :_destroy, :id, tag: {})
-                         .merge(user_id: current_user.id, tag_name: p_tag_name)
+          .merge(user_id: current_user.id, tag_name: p_tag_name)
   end
 
   def item_destroy_params
     params.require(:item).permit(:image, :item_name, :text, :category_id, :product_status_id,
-                                 :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, 
+                                 :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id,
                                  :price, :_destroy, :id)
-                         .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id)
   end
 
   def move_to_index
