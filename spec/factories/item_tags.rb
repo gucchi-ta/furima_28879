@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :item do
+  factory :item_tag do
     item_name               { Faker::Lorem.sentence }
     text                    { Faker::Lorem.sentence }
     category_id             { Faker::Number.within(range: 2..11) }
@@ -8,6 +8,6 @@ FactoryBot.define do
     prefecture_id           { Faker::Number.within(range: 2..48) }
     scheduled_delivery_id   { Faker::Number.within(range: 2..4) }
     price                   { Faker::Number.within(range: 300..9_999_999) }
-    association :user
+    tag_name                { Faker::Lorem.sentence }
   end
 end

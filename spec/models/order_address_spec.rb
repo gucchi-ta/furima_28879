@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe OrderAddress, type: :model do
   describe '#create' do
     before do
       @order = FactoryBot.build(:order_address)

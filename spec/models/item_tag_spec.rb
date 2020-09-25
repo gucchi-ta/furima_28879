@@ -1,15 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Item, type: :model do
+RSpec.describe ItemTag, type: :model do
   describe '#create' do
     before do
-      @item = FactoryBot.build(:item)
+      @item = FactoryBot.build(:item_tag)
       @item.image = fixture_file_upload('app/assets/images/sample.jpg')
     end
 
     describe '商品出品機能' do
       context '商品が出品できる時' do
         it '画像や値が全て存在し、プルダウンが全て選択されていれば保存できる' do
+          expect(@item).to be_valid
+        end
+        it ' tag_nameが存在しなくても保存できる' do
+          @item.tag_name = nil
           expect(@item).to be_valid
         end
       end
