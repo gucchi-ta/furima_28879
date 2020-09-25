@@ -120,8 +120,10 @@
     <div id='messages' class='messages'>
     <% if @messages %>
       <% @messages.reverse_each do |message| %>
-        <p >
+        <p>
+        <a class="message_border">
         <%= message.message %>
+        </a>
         </p>
       <% end %>
     <% end %>
