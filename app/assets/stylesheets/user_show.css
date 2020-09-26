@@ -3,3 +3,20 @@
   line-height: 1.4;
   font-weight: bold;
 }
+
+
+.go-sell {
+  position: absolute;
+  top: 25%;
+  width: 98.5%;
+  /* height: 40%; */
+  text-align: center;
+  background-color: #3ccace;
+  /* transform: skewY(-10deg); */
+}
+
+.go-sell>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
