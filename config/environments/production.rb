@@ -46,8 +46,8 @@ Rails.application.configure do
 
   # action_cableが本番で使えるよう追記
   ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = 'ws://Elastic IP/cable'
-  config.action_cable.allowed_request_origins = [ 'http://Elastic IP' ]
+  config.action_cable.url = 'ws://54.199.124.52/cable'
+  config.action_cable.allowed_request_origins = [ 'http://54.199.124.52' ]
   
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
