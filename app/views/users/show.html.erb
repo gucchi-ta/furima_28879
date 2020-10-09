@@ -47,7 +47,6 @@
     <%# 商品がない場合のダミー %>
     <% if @p_items.where('id >= 1').blank? %>
       <li class='list'>
-        <%= link_to '#' do %>
         <%= image_tag "white_image.jpg", class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -61,7 +60,6 @@
             </div>
           </div>
         </div>
-        <% end %>
       </li>
     <% end %>
     <%# //商品がない場合のダミー %>
@@ -79,7 +77,6 @@
     <%# 商品がない場合のダミー %>
     <% if @good_items.where('id >= 1').blank? %>
       <li class='list'>
-        <%= link_to '#' do %>
         <%= image_tag "white_image.jpg", class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -93,7 +90,6 @@
             </div>
           </div>
         </div>
-        <% end %>
       </li>
     <% end %>
     <%# //商品がない場合のダミー %>
