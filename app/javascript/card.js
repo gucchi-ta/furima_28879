@@ -1,3 +1,4 @@
+// API Payjsのjs
 const pay = () => {
   // 公開鍵の設定
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);

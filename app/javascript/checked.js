@@ -1,3 +1,4 @@
+// 旧お気に入り機能のjs
 function check() {
   const good = document.getElementById("good-btn");
   if (good.getAttribute("data-load") != null) {

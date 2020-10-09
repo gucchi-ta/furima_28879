@@ -1,3 +1,4 @@
+// タグのインクリメンタルサーチのjs
 window.addEventListener("load", (e) => {
   const inputElement = document.getElementById("item-tag");
     inputElement.addEventListener("keyup", (e) => {

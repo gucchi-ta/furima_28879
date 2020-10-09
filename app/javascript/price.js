@@ -1,3 +1,4 @@
+// 価格の手数料の非同期表示のjs
 //price関数を定義
 function price() {
   //要素を取得

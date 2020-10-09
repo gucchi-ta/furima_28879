@@ -18,7 +18,7 @@ import "cocoon";
 require("@nathanvda/cocoon")
 require("cocoon")
 
-require("../checked")
+// require("../checked")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
