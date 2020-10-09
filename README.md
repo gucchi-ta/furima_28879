@@ -64,6 +64,7 @@ Things you may want to cover:
 | prefecture          | integer    | null:false                    |
 | scheduled_delivery  | integer    | null:false                    |
 | price               | integer    | null:false                    |
+| checked             | boolean    |                               |
 | user                | references | null:false, foreign_key: true |
 
 ### association
@@ -73,15 +74,17 @@ Things you may want to cover:
 - has_many : tags, throgh : item_tag_relations
 - has_many : messages
 
-<!-- タグ情報のテーブル -->
-## tagsテーブル
-| Column   | Type   | Options |
-| -------- | ------ | ------- |
-| item_tag | string |         |
+<!-- お気に入り情報のテーブル(userとitemの中間テーブル) -->
+## favoriteテーブル
+| Column | Type       | Options                       |
+| ------ | ---------- | ----------------------------- |
+| user   | references | null:false, foreign_key: true |
+| item   | references | null:false, foreign_key: true |
 
 ### association
 
-- has_many : items, through : item_tag_relations
+- belongs_to :user
+- belongs_to :item
 
 <!-- 商品/タグ情報の中間テーブル -->
 ## item_tag_relationsテーブル
@@ -93,7 +96,17 @@ Things you may want to cover:
 ### association
 
 - belongs_to :item
-- belongs_to :user
+- belongs_to :tag
+
+<!-- タグ情報のテーブル -->
+## tagsテーブル
+| Column   | Type   | Options |
+| -------- | ------ | ------- |
+| item_tag | string |         |
+
+### association
+
+- has_many : items, through : item_tag_relations
 
 <!-- メッセージのテーブル -->
 ## messagesテーブル
