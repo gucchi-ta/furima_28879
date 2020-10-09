@@ -15,6 +15,7 @@ class OrderAddress
     validates :telephone, format: { with: /\d/ }, length: { maximum: 11 }
   end
 
+  # saveメソッド定義
   def save
     # 購入情報(親テーブル)の情報を保存し、変数orderに代入
     order = Order.create(user_id: user_id, item_id: item_id, token: token)

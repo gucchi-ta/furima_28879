@@ -8,10 +8,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # 空の投稿を保存できないようにする
+  # 空のデータを保存できないようにする
   validates :nickname, :birthday, presence: true
 
-  # パスワードのバリデーション
+  # passwordのバリデーション
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, format: { with: PASSWORD_REGEX }, length: { minimum: 6 }
 
