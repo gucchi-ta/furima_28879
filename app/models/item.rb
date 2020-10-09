@@ -1,10 +1,12 @@
 class Item < ApplicationRecord
+  # アソシエーション
   belongs_to :user
   has_one :order, dependent: :destroy
   has_one_attached :image
   has_many :tags, through: :item_tag_relations
   has_many :item_tag_relations, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :favorites
 
   accepts_nested_attributes_for :tags, allow_destroy: true
   accepts_nested_attributes_for :item_tag_relations, allow_destroy: true
@@ -37,4 +39,10 @@ class Item < ApplicationRecord
       Item.all.order('created_at DESC')
     end
   end
+
+  # favorited_by?メソッドの定義
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
 end

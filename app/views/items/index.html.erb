@@ -126,7 +126,7 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
       <%# 商品一覧 %>
-      <%= render"shared/index", items: @items %>
+      <%= render"shared/index", items: @items, favorites: @favorites %>
       <%# /商品一覧 %>
       <%# 商品がない場合のダミー %>
       <% if @items.where('id >= 1').blank? %>

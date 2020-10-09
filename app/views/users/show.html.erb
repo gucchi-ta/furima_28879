@@ -5,7 +5,7 @@
   <h2 class='mypage_title'><%= @nickname %>さんの出品商品一覧</h2>
   <ul class='item-lists'>
     <%# 商品一覧 %>
-    <%= render"shared/index", items: @items %>
+    <%= render"shared/index", items: @items, favorites: @favorites %>
     <%# /商品一覧 %>
     <%# 商品がない場合のダミー %>
     <% if @items.where('id >= 1').blank? %>
@@ -42,7 +42,7 @@
   <h2 class='mypage_title'><%= @nickname %>さんの購入済み商品一覧</h2>
   <ul class='item-lists'>
     <%# 商品一覧 %>
-    <%= render"shared/index", items: @p_items %>
+    <%= render"shared/index", items: @p_items, favorites: @favorites %>
     <%# /商品一覧 %>
     <%# 商品がない場合のダミー %>
     <% if @p_items.where('id >= 1').blank? %>
@@ -72,10 +72,10 @@
   <h2 class='mypage_title'>お気に入り</h2>
   <ul class='item-lists'>
     <%# 商品一覧 %>
-    <%= render"shared/index", items: @good_items %>
+    <%= render"shared/index", items: @f_items, favorites: @favorites %>
     <%# /商品一覧 %>
     <%# 商品がない場合のダミー %>
-    <% if @good_items.where('id >= 1').blank? %>
+    <% if @f_items.where('id >= 1').blank? %>
       <li class='list'>
         <%= image_tag "white_image.jpg", class: "item-img" %>
         <div class='item-info'>

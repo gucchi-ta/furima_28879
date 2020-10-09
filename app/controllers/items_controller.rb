@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:user).order('created_at DESC')
     @orders = Order.includes(:user, :item)
+    @favorites = Favorite.all
     # @item_tag = ItemTag.search(params[:keyword])
   end
 
