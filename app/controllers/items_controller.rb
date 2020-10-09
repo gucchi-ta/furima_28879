@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :move_to_index, except: [:index, :show, :search]
-  # before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item_tag, only: [:new, :create]
+  before_action :find_item_tag, only: [:show, :edit, :update]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -28,24 +29,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # binding.pry
-    @item = Item.find(params[:id])
-    @tag = @item.item_tag_relations[0].tag
     @orders = Order.includes(:user, :item)
-    # @items =  ItemTag.find(params[:id])
     @message = Message.new
     @messages = @item.messages.includes(:user)
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @tag = @item.item_tag_relations[0].tag
     @items = ItemTag.new
   end
 
   def update
-    @item = Item.find(params[:id])
-    @tag = @item.item_tag_relations[0].tag
     @items = ItemTag.new(item_params)
     # FoemオブジェクトでActiveStprageの紐付けがきれてしまうので@item.image.blobで取得したものを代入
     @items.image = @item.image.blob if @items.image.nil?
@@ -109,18 +102,17 @@ class ItemsController < ApplicationController
           .merge(user_id: current_user.id, tag_name: p_tag_name)
   end
 
-  def item_destroy_params
-    params.require(:item).permit(:image, :item_name, :text, :category_id, :product_status_id,
-                                 :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id,
-                                 :price, :_destroy, :id)
-          .merge(user_id: current_user.id)
-  end
-
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
 
-  def set_item
+  def set_item_tag
+    @item = Item.new
+    @tag = Tag.new
+  end
+
+  def find_item_tag
     @item = Item.find(params[:id])
+    @tag = @item.item_tag_relations[0].tag
   end
 end

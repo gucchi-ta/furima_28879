@@ -6,16 +6,13 @@ window.addEventListener("load", (e) => {
       xhr.open("GET", `incre_search/?input=${input}`, true);
       xhr.responseType = "json";
       xhr.send();
-      console.log(2)
       xhr.onload = () => {
-        console.log(3)
         const tagName = xhr.response.incre_keyword;
         console.log(tagName)
         const searchResult = document.getElementById('search-result')
         searchResult.innerHTML = ''
         tagName.forEach(function(tag){
 
-          console.log(4)
           const parentsElement = document.createElement('div')
           const childElement = document.createElement('div')
 
@@ -32,8 +29,8 @@ window.addEventListener("load", (e) => {
           clickElement.addEventListener("click", () => {
             document.getElementById("item-tag").value = clickElement.textContent;
             clickElement.remove();
-          })
-        })
-      }
+          });
+        });
+      };
     });
-  })
+  });

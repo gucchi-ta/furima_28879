@@ -2,7 +2,7 @@
 
   <%# エラー発生時にメッセージを表示 %>
   <%= render 'shared/error_messages', model: models %>
-  <%## エラー発生時にメッセージを表示 %>
+  <%# /エラー発生時にメッセージを表示 %>
 
   <%# 出品画像 %>
   <div class="img-upload">
@@ -36,7 +36,6 @@
   <%# /商品名と商品説明 %>
 
   <%# 商品タグ(tagsテーブルを参照) %>
- <%# 商品タグ(tagsテーブルを参照) %>
       <div class="new-tags" id="new-tag">
         <div class="tag_text_image">
           <div class="weight-bold-tag-text">タグ</div>
@@ -56,7 +55,6 @@
       </div>
       <div id="search-result" calss="search-result">
       </div>
-      <%# /商品タグ %>
   <%# /商品タグ %>
 
   <%# 商品の詳細 %>
@@ -123,6 +121,7 @@
         <span>
         <%# Javascriptで販売手数料と販売利益の表示 %>
           <span id='add-tax-price'></span>円
+        <%# /Javascriptで販売手数料と販売利益の表示 %>
         </span>
       </div>
       <div class="price-content">

@@ -1,9 +1,5 @@
 class MessagesController < ApplicationController
   def create
-    # binding.pry
-    # message = Message.create(message_params)
-    # redirect_to "/items/#{message.item.id}"
-    # binding.pry
     @message = Message.create(message_params)
     ActionCable.server.broadcast 'message_channel', content: @message if @message.valid?
   end
