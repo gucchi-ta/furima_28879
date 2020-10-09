@@ -70,8 +70,10 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
+# deviseの導入
 gem 'devise'
 
+# binding.pryのためのgemの導入
 gem 'pry-rails'
 
 # ActiveHashの導入
