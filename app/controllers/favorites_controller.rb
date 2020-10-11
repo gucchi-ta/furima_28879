@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def create
     # binding.pry
     # こう記述することで、「current_userに関連したFavoriteクラスの新しいインスタンス」が作成可能。
@@ -18,5 +17,4 @@ class FavoritesController < ApplicationController
     favorite.destroy
     # redirect_to item_path(favorite.item_id)
   end
-
 end
