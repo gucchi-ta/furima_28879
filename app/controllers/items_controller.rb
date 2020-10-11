@@ -64,6 +64,7 @@ class ItemsController < ApplicationController
   def search
     @item = Item.search(params[:keyword])
     @orders = Order.includes(:user, :item)
+    @keyword = params[:keyword]
   end
 
   def incre_search

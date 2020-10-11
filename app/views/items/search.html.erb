@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 
+<h2 class='search-result'>"<%= @keyword %>" での検索結果: <%= @item.count %>件ヒットしました</h2>
 <div class='item-contents'>
   <ul class='item-lists'>
     <% @item.each do |item| %>
