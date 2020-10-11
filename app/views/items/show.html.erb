@@ -85,8 +85,8 @@
   </div>
   <%# /商品の概要 %>
 
+  <%# メッセージ欄 %>
   <div class="comment-box">
-
     <% if current_user %>
       <%= form_with(model: [@item, @message], local: true) do |f| %>
         <%= f.text_area :message, rows: "2", class:"comment-text" %>
@@ -95,8 +95,7 @@
           <br>
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
         </p>
-        <%= f.submit "コメントする", class: "comment-btn", id: "message-btn" %>
-        <%#= image_tag('minus_image.png' , size: '15', id: 'minus-image') %>
+        <%= f.submit "コメントする", class: "comment-btn mouseon_cursor", id: "message-btn" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
@@ -117,6 +116,7 @@
     <% end %>
     </div>
   </div>
+  <%# /メッセージ欄 %>
 
   <div class="links">
     <a href="#" class="change-item-btn">

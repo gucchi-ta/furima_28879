@@ -142,7 +142,6 @@
 .favorite-text{
   text-decoration: none;
   color: #f94b00;
-
 }
 
 /* /お気に入り */
@@ -254,20 +253,3 @@
 .mouseon_cursor{
   cursor: pointer !important;
 }
-
-
-/* お気に入りボタン */
-/* div[data-check="true"] {
-  background: #ffdca8;
-} */
-
-.favorite-on-btn{
-  background: #ffdca8;
-}
-
-.favorite-text{
-  text-decoration: none;
-  color: #f94b00;
-
-}
-/* /お気に入りボタン */
