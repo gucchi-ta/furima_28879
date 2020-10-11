@@ -95,4 +95,9 @@ gem 'cocoon'
 
 # nested_form_fieldsの導入
 gem 'nested_form_fields'
+
+# jqueryの導入
 gem 'jquery-rails'
+
+# jquery-turbolinksの導入
+# gem 'jquery-turbolinks'
