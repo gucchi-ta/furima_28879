@@ -97,4 +97,8 @@
 </div>
 <%# お気に入り商品一覧 %>
 
+<div class='purchase-btn'>
+  <span class='purchase-btn-text'>出品する</span>
+  <%= link_to image_tag('camera.png' , size: '185x50' ,class: "purchase-btn-icon"), new_item_path %>
+</div>
 <%= render "shared/footer" %>
