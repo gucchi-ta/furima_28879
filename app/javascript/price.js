@@ -1,3 +1,5 @@
+// 価格の手数料の非同期表示のjs
+
 //price関数を定義
 function price() {
   //要素を取得
@@ -14,5 +16,7 @@ function price() {
     profit.innerHTML = profit_value;
   });
 };
+$(document).on('turbolinks:load', function() {
 //画面ロード時に定義したprice関数を実行
-window.addEventListener("load", price);
+  window.addEventListener("load", price);
+});

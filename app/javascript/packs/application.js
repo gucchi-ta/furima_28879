@@ -3,22 +3,27 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// jqueryの導入 //
+require('jquery')
+
 require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-//jsファイル(price.js)を読み込む
+
+//jsファイルを読み込む
 require("../price")
 require("../card")
 require("../add_tag")
 require("../tag_search")
-// jquery, cocoonの導入
-require('jquery')
-import "cocoon";
-require("@nathanvda/cocoon")
-require("cocoon")
+// require("../checked")
 
-require("../checked")
+
+
+// cocoonの導入 //
+// import "cocoon";
+// require("@nathanvda/cocoon")
+// require("cocoon")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

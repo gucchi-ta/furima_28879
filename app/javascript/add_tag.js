@@ -1,3 +1,4 @@
+// タグの増減のためのjs(未完全)
 const { htmlPrefilter } = require("jquery");
 
 window.addEventListener("load", (e) => {

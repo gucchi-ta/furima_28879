@@ -1,0 +1,13 @@
+<% if @item.favorites.where(user_id: current_user.id).exists? %>
+<div class="favorite-btn favorite-on-btn" id="good-btn" data-id=<%= @item.id %> data-check=<%= @item.checked %>>
+  <%= image_tag "dark_star.png", class:"favorite-star-icon", width:"20", height:"20" %>
+  <%#= link_to 'お気に入り', item_favorites_path(@item.id), class: 'favorite-text', method: :delete %>
+  <%= link_to 'お気に入り', item_favorites_path(@item.id), class: 'favorite-text', method: :delete, remote: true %>
+</div>
+<% else %>
+<div class="favorite-btn favorite-off-btn" id="good-btn" data-id=<%= @item.id %> data-check=<%= @item.checked %>>
+  <%= image_tag "dark_star.png", class:"favorite-star-icon", width:"20", height:"20" %>
+  <%#= link_to 'お気に入り', item_favorites_path(@item.id), class: 'favorite-text', method: :post %>
+  <%= link_to 'お気に入り', item_favorites_path(@item.id), class: 'favorite-text', method: :post, remote: true %>
+</div>
+<% end %>

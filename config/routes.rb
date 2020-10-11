@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :orders,only: [:index, :create]
     resources :messages, only: :create
+    resource :favorites, only: [:create, :destroy]
     collection do
       get 'search'
       get 'incre_search'

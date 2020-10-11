@@ -19,9 +19,9 @@
       <div class='item-price'>
         <span><%= item.price %>円<br>(税込み)</span>
         <div class='star-btn' >
-          <% if item.checked == true %>
+          <% if favorites.where(item_id: item.id).present? %>
             <%= image_tag "light_star.png", class:"star-icon" %>
-            <span class='star-count'>1</span>
+            <span class='star-count'><%= favorites.where(item_id: item.id).count %></span>
           <% else %>
             <%= image_tag "dark_star.png", class:"star-icon" %>
             <span class='star-count'>0</span>
