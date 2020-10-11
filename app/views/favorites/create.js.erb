@@ -1,2 +1,1 @@
-console.log("create")
-$('#favorites_buttons_<%= @item.id %>').html("<%= j(render partial: 'likes/like') %>");
+$('#favorites_buttons_<%= @item.id %>').html("<%= j(render partial: 'shared/like') %>");
