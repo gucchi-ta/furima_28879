@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :tags, through: :item_tag_relations
   has_many :item_tag_relations, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   accepts_nested_attributes_for :tags, allow_destroy: true
   accepts_nested_attributes_for :item_tag_relations, allow_destroy: true
