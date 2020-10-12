@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
   def incre_search
     return nil if params[:input] == ''
 
-    @tags = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"])
+    @tags = Tag.where(['tag_name LIKE ?', "#{params[:input]}%"])
     render json: { incre_keyword: @tags }
   end
 
