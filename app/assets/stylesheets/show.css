@@ -235,21 +235,43 @@
 .comments{
   width: 40vw;
   background-color: #fff;
-  margin: 5vh 0;
-  text-align: center;
+  margin-bottom: 5vh;
 }
 
-.comment_index{
+.comment-index{
   border-bottom: 2px solid #3CCACE;
   background-color: #3CCACE;
   color:  #fff;
   font-size: larger;
+  border-radius: 15px ;
+  margin: 0 5vh;
+  text-align: center;
 }
 
-.messages p{
-  padding: 4px;
+.messages{
+  padding: 20px;
+}
+
+.message-border{
+  padding-top: 20px;
 }
 
 .mouseon_cursor{
   cursor: pointer !important;
 }
+
+.message-nickname{
+  font-size: 11px;
+}
+
+.message-mesage{
+  font-size: 16px;
+  padding-left: 11px;
+}
+
+.message-date{
+  color: gray;
+}
+
+
+/* /コメント一覧 */

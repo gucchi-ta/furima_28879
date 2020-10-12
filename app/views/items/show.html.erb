@@ -105,15 +105,19 @@
   </div>
 
   <div class="comments" >
-    <h4 class="comment_index">コメント一覧</h4>
+    <h4 class="comment-index">コメント一覧</h4>
     <div id='messages' class='messages'>
     <% if @messages %>
       <% @messages.reverse_each do |message| %>
-        <p>
-        <a class="message_border">
-        <%= message.message %>
-        </a>
-        </p>
+        <div class="message-border">
+          <p class="message-nickname">
+            <%= message.user.nickname %>
+            <a class="message-date"><%= message.created_at %></a>
+          </p>
+          <%# simple_formatで改行を含めて表示 , pタグが自動生成されるのでclassを付与してCSSを適用 %>
+            <%= simple_format(message.message, class: "message-mesage") %>
+          <%# /simple_formatで改行を含めて表示 %>
+        </div>
       <% end %>
     <% end %>
     </div>
