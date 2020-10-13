@@ -41,13 +41,14 @@
           <div class="weight-bold-tag-text">タグ</div>
           <p class="tag_image">
             <%= image_tag('plus_image.png' , size: '15', id: 'plus-image', class: 'mouseon_cursor') %>
+            <%#= image_tag('minus_image.png' , size: '15', id: 'minus-image', class: 'minus-image mouseon_cursor') %>
           </p>
         </div>
 
         <%= f.fields_for tag, local: true do |f|  %>  
-          <div id="tag-form" class="tag-form"> 
+          <div id="tag-form" class="tag-form">  <%# class="tag-form" %>
             <%= f.text_area :tag_name, class:"item-tag", id:"item-tag", maxlength:"20" %>
-            <%= image_tag('minus_image.png' , size: '15', id: 'minus-image', class: 'minus-image mouseon_cursor') %>
+            <%= image_tag('midpoint_image.png' , size: '15', id: 'minus-image', class: 'minus-image') %>  <%# class="minus-image mouseon_cursor" %>
           </div>
         <% end %>
         
