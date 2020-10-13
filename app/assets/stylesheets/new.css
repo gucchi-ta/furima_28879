@@ -105,7 +105,7 @@
   resize: none;
 }
 
-.items-tag {
+.item-tag {
   width: calc(100% - 19px);
   /* width: 100%; */
   padding: 16px 16px 8px;
