@@ -47,7 +47,7 @@
 
         <%= f.fields_for tag, local: true do |f|  %>  
           <div id="tag-form" class="tag-form">  <%# class="tag-form" %>
-            <%= f.text_area :tag_name, class:"item-tag", id:"item-tag", maxlength:"20" %>
+            <%= f.text_area :tag_name, class:"item-tag", id:"item-tag", placeholder:"タグ（任意 20文字まで)", maxlength:"20" %>
             <%= image_tag('midpoint_image.png' , size: '15', id: 'minus-image', class: 'minus-image') %>  <%# class="minus-image mouseon_cursor" %>
           </div>
         <% end %>

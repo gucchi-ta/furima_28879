@@ -38,7 +38,7 @@ function addTagFunction() {
   plusImageElement.addEventListener("click", (e) => {
     // 追加するフォームのHTML定義
     const HTML = `<div id="tag-form" class="tag-form"> 
-                    <textarea class="item-tag" id="item-tag" maxlength="20" name="item[tag][tag_name]"></textarea>
+                    <textarea class="item-tag" id="item-tag" placeholder="タグ（任意 20文字まで)" maxlength="20" name="item[tag][tag_name]"></textarea>
                     <img id="minus-image" class="minus-image mouseon_cursor" src="/assets/minus_image-6d029aef624144816d94d6cd1c062954a4c90c78a499b4d9694cfb63b48ec0aa.png" width="15" height="15">
                   </div>`
     // フォームの追加
