@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @orders = Order.includes(:user, :item)
     @message = Message.new
     @messages = @item.messages.includes(:user)

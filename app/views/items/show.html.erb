@@ -49,6 +49,12 @@
           <th class="detail-item">出品者</th>
           <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
+        <% if @item.user_id == current_user.id %>
+          <tr>
+            <th class="detail-item">タグ</th>
+            <td class="detail-value"><%= @tag.tag_name %></td>
+          </tr>
+        <% end %>
         <tr>
           <th class="detail-item">カテゴリー</th>
           <td class="detail-value"><%= @item.category.name %></td>
@@ -68,7 +74,7 @@
         <tr>
           <th class="detail-item">発送日の目安</th>
           <td class="detail-value"><%= @item.scheduled_delivery.name %></td>
-        </tr>
+        </tr>   
       </tbody>
     </table>
     <% if user_signed_in? %>
