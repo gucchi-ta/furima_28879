@@ -15,7 +15,7 @@ require("channels")
 require("../price")
 require("../card")
 require("../add_take_tag")
-require("../tag_search")
+require("../tag_incre_search")
 
 
 
