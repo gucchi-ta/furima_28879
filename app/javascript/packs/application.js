@@ -14,9 +14,8 @@ require("channels")
 //jsファイルを読み込む
 require("../price")
 require("../card")
-require("../add_tag")
+require("../add_take_tag")
 require("../tag_search")
-// require("../checked")
 
 
 

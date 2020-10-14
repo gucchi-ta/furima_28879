@@ -1,5 +1,5 @@
 // タグのインクリメンタルサーチのjs
-window.addEventListener("load", (e) => {
+function tagSearchFunction() {
   const inputElement = document.getElementById("item-tag");
     inputElement.addEventListener("keyup", (e) => {
       const input = document.getElementById("item-tag").value;
@@ -34,4 +34,6 @@ window.addEventListener("load", (e) => {
         });
       };
     });
-  });
+  };
+
+  window.addEventListener("load", tagSearchFunction);

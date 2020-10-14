@@ -25,7 +25,6 @@ consumer.subscriptions.create("MessageChannel", {
           ${message}
         </p>
       </div>`;
-    console.log(html)
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('message_message');
     messages.insertAdjacentHTML('afterbegin', html);
