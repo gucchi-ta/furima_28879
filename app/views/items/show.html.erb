@@ -49,11 +49,13 @@
           <th class="detail-item">出品者</th>
           <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
-        <% if @item.user_id == current_user.id %>
-          <tr>
-            <th class="detail-item">タグ</th>
-            <td class="detail-value"><%= @tag.tag_name %></td>
-          </tr>
+        <% if user_signed_in? %>
+          <% if @item.user_id == current_user.id %>
+            <tr>
+              <th class="detail-item">タグ</th>
+              <td class="detail-value"><%= @tag.tag_name %></td>
+            </tr>
+          <% end %>
         <% end %>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -95,7 +97,7 @@
 
   <%# メッセージ欄 %>
   <div class="comment-box">
-    <% if current_user %>
+    <% if user_signed_in? %>
       <%= form_with(model: [@item, @message], local: true) do |f| %>
         <%= f.text_area :message, rows: "2", class:"comment-text" %>
         <p class="comment-warn">

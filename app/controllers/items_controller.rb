@@ -12,12 +12,14 @@ class ItemsController < ApplicationController
   end
 
   def new
+    binding.pry
     @item = Item.new
     @tag = Tag.new
     @items = ItemTag.new
   end
 
   def create
+    binding.pry
     @item = Item.new
     @tag = Tag.new
     @items = ItemTag.new(item_params)
